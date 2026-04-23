@@ -8,6 +8,7 @@ from pathlib import Path
 
 import pandas as pd
 import streamlit as st
+import google.generativeai as genai
 
 from analysis import (
     REQUIRED_COLUMNS,
@@ -266,6 +267,13 @@ def get_preview_data(
     except Exception as exc:
         return None, str(exc)
 
+def generate_ai_plan(data_frame):
+    genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+    model = genai.GenerativeModel('gemini-1.5-flash')
+    prompt = f"Act as a city planner. Based on this temperature data, write a 3-paragraph Actionable Climate Resilience Plan to cool down the hardest-hit urban areas:\n\n{data_frame.to_string()}"
+    response = model.generate_content(prompt)
+    return response.text
+
 
 def build_ui() -> None:
     st.set_page_config(page_title="Urban Heat Island Analysis Tool", layout="wide")
@@ -400,7 +408,7 @@ def build_ui() -> None:
             st.write(f"Output folder: {output_dir}")
 
             metric_values = urban_vs_rural.set_index("metric")["value"]
-            urban_avg = float(metric_values.get("urban_avg_temp_c", float("nan")))
+            urban_avg = float(metric_.get("urban_avg_temp_c", float("nan")))
             rural_avg = float(metric_values.get("rural_avg_temp_c", float("nan")))
             difference = float(
                 metric_values.get("difference_urban_minus_rural_c", float("nan"))
@@ -420,6 +428,13 @@ def build_ui() -> None:
                 st.dataframe(avg_by_location, use_container_width=True)
                 st.subheader("Urban vs Rural Summary")
                 st.dataframe(urban_vs_rural, use_container_width=True)
+                
+                st.subheader("AI Climate Resilience Plan")
+                if st.button("Generate AI Plan"):
+                    with st.spinner("Gemini is analyzing the temperature differentials..."):
+                        ai_plan = generate_ai_plan(urban_vs_rural)
+                        st.markdown(ai_plan)
+
                 st.subheader("Cleaned Data")
                 st.dataframe(filtered_data, use_container_width=True)
 
