@@ -1,0 +1,17 @@
+# Python cache and virtual environment
+__pycache__/
+*.pyc
+.venv/
+
+# Streamlit and temporary upload data
+.streamlit/
+temp_uploads/
+
+# Generated outputs
+outputs/*
+!outputs/.gitkeep
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/

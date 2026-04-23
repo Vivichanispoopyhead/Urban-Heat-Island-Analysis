@@ -1,0 +1,13 @@
+datetime,temperature_c,location_name,location_type
+2026-03-20 06:00,25.4,City Center,urban
+2026-03-20 09:00,29.1,City Center,urban
+2026-03-20 12:00,33.8,City Center,urban
+2026-03-20 15:00,35.2,City Center,urban
+2026-03-20 18:00,32.0,City Center,urban
+2026-03-20 21:00,29.4,City Center,urban
+2026-03-21 06:00,26.1,City Center,urban
+2026-03-21 09:00,30.0,City Center,urban
+2026-03-21 12:00,34.2,City Center,urban
+2026-03-21 15:00,35.9,City Center,urban
+2026-03-21 18:00,32.8,City Center,urban
+2026-03-21 21:00,29.9,City Center,urban

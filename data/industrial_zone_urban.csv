@@ -1,0 +1,13 @@
+datetime,temperature_c,location_name,location_type
+2026-03-20 06:00,24.9,Industrial Zone,urban
+2026-03-20 09:00,28.3,Industrial Zone,urban
+2026-03-20 12:00,32.9,Industrial Zone,urban
+2026-03-20 15:00,34.1,Industrial Zone,urban
+2026-03-20 18:00,31.3,Industrial Zone,urban
+2026-03-20 21:00,28.8,Industrial Zone,urban
+2026-03-21 06:00,25.5,Industrial Zone,urban
+2026-03-21 09:00,29.2,Industrial Zone,urban
+2026-03-21 12:00,33.5,Industrial Zone,urban
+2026-03-21 15:00,34.7,Industrial Zone,urban
+2026-03-21 18:00,31.9,Industrial Zone,urban
+2026-03-21 21:00,29.1,Industrial Zone,urban
